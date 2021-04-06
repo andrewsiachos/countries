@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import countryData from '../realcountries.json';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-country-details',
@@ -16,8 +15,7 @@ export class CountryDetailsComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,
     private router: Router,
-    private http: HttpClient,
-    private location: Location) { }
+    private http: HttpClient) { }
 
 
   ngOnInit(): void {
@@ -46,7 +44,9 @@ export class CountryDetailsComponent implements OnInit {
   }
 
   borderNavigation(alphaCode:string){
-    location.replace('/country/' + alphaCode);
+    this.http.get('https://restcountries.eu/rest/v2/alpha?codes=' + alphaCode.toLowerCase()).subscribe(responseData=>{
+        this.chosenCountryDetails = responseData;
+    })
   }
 
 }
