@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div id='searchContainer' class="flex flex-jc-sb flex-ai-c">
+    <div id='search' class="flex flex-ai-c">
+      <i class="fas fa-search" style='font-size: 20px;'></i>
+      <input type="text" placeholder="Search for a country..." [(ngModel)]='searchValue' (keypress)='onKeypress($event)'>
+      <i class="far fa-times-circle" style='font-size: 20px;' (click)='reset()' *ngIf='searchValue.length != 0'></i>
+    </div>
+
+    <div id='selectContainer'>
+      <select >
+        <option value="" selected disabled hidden>Filter By Region</option>
+        <option *ngFor='let choice of selectOptions' value={{choice}} (click)='onSelectRegion($event)'>
+          {{choice}}
+        </option>
+      </select>
+    </div>
+
+  </div>
+
+
+
+  <div id='countryContainer'>
+
+    <div class="countryItem" *ngFor='let item of fileteredCountries' (click)='goToCountry(item.name)' >
+
+      <div class="countryImage">
+        <img src={{item.flag}} alt={{item.name}}>
+      </div>
+
+      <div class="countryDetails">
+        <h3>{{item.name}} </h3>
+        <p><span>Population: </span> {{item.population.toLocaleString()}} </p>
+        <p><span>Region: </span> {{item.region}} </p>
+        <p><span>Capital: </span>{{item.capital}} </p>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

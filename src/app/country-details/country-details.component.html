@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <button class="backButton" (click)='goBack()'><i class="fas fa-arrow-left"></i> Back</button>
+
+  <div id='theCountry' class="flex flex-jc-sb flex-ai-c" *ngFor='let item of chosenCountryDetails'>
+    <div class="theFlag">
+      <img src={{item.flag}} alt="">
+    </div>
+
+    <div class="theInfo">
+      <h3>{{item.name}}</h3>
+      <div id='demograhpics' class="flex">
+        <div>
+
+          <p>Native Name: <span class="notHighlightedSpans">{{item.nativeName}} </span></p>
+          <p>Population: <span class="notHighlightedSpans">{{item.population.toLocaleString()}} </span> </p>
+          <p>Region: <span class="notHighlightedSpans">{{item.region}} </span></p>
+          <p>Subregion: <span class="notHighlightedSpans">{{item.subRegion}} </span> </p>
+          <p>Capital: <span class="notHighlightedSpans">{{item.capital}} </span> </p>
+        </div>
+
+        <div>
+          <p>Top Level Domain: <span class="notHighlightedSpans">{{item.topLevelDomain[0]}} </span> </p>
+          <p>Currencies: <span *ngFor='let x of item.currencies' class="notHighlightedSpans">{{x.name}} </span> </p>
+          <p>Languages: <span *ngFor='let y of item.languages' class="notHighlightedSpans">{{y.name}} </span> </p>
+        </div>
+
+      </div>
+
+      <div id='borderContainer' class=" flex">
+        <p>Border Countries:</p>
+        <div class="theBorders flex flex-ai-c">
+          <div *ngFor='let z of item.borders' (click)='borderNavigation(z)'> {{z | i18nSelect: realCountries | shortencountries}} </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+

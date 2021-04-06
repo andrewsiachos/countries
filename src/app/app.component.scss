@@ -1,0 +1,296 @@
+$darkBlue : hsl(209, 23%, 22%); //(Dark Mode Elements)
+$veryDarkBlueBackground : hsl(207, 26%, 17%); //(Dark Mode Background)
+$veryDarkBlue : hsl(200, 15%, 8%); //(Light Mode Text)
+$darkGray : hsl(0, 0%, 52%); //(Light Mode Input)
+$veryLightGray : hsl(0, 0%, 98%); //(Light Mode Background)
+$white : hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
+
+
+
+.wrapper{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darkTheme{
+  background-color: $veryDarkBlueBackground;
+  color: $white;
+}
+.darkThemeElements{
+  background-color: $darkBlue;
+  color: $white;
+}
+
+.lightTheme{
+  background-color: $white;
+  color: $veryDarkBlue;
+}
+
+.flex{
+  display: flex;
+  &-jc-c{
+    justify-content: center;
+  }
+  &-jc-sb{
+    justify-content: space-between;
+  }
+  &-ai-c{
+    align-items: center;
+  }
+}
+
+img{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+header{
+  padding: 30px 0;
+  box-shadow: 3px 3px 3px #e2e2e2;
+  p{
+    cursor: pointer;
+  }
+}
+
+
+#searchContainer{
+  margin-top: 45px;
+  #search{
+    width: 36%;
+    border-radius: 5px;
+  }
+  input{
+    padding: 16px 10px;
+    border: 0;
+    width: 85%;
+    &:focus{
+      outline: none;
+    }
+  }
+
+
+  #selectContainer{
+    width: 15%;
+    select{
+      border: 0;
+      border-radius: 3px;
+      width: 100%;
+      padding: 17px 7px;
+    }
+  }
+}
+
+#countryContainer{
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 75px;
+  grid-row-gap: 75px;
+
+  .countryItem{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $white;
+
+
+    .countryDetails{
+      width: 90%;
+      margin: 28px auto;
+      h3{
+        margin-bottom: 26px;
+      }
+      span{
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+.backButton{
+  margin-top: 78px;
+  background-color:$white;
+  padding: 15px 43px;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px $darkGray;
+  cursor: pointer;
+}
+
+
+#theCountry{
+  margin-top: 75px;
+  font-size: 16px;
+  .theFlag{
+    width: 43%;
+  }
+
+  .theInfo{
+    width: 46%;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    h3{
+      margin-bottom: 40px;
+    }
+  }
+
+  p{
+    font-weight: 600;
+  }
+}
+
+#demograhpics{
+  div{
+    width: 50%;
+  }
+}
+
+.notHighlightedSpans{
+  font-weight: 400;
+}
+
+#borderContainer{
+  margin-top: 70px;
+}
+
+.theBorders{
+  margin-left:10px;
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 7px;
+  overflow: visible;
+  div{
+    padding: 8px 25px;
+    background-color:$white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px $darkGray;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}
+
+
+@media (max-width: 900px){
+  #countryContainer{
+    grid-template-columns: auto auto auto;
+  }
+  #selectContainer{
+    width: 100%;
+  }
+
+  //countryDetails
+  #theCountry{
+    border: 1px solid red;
+    display: block;
+
+    .theFlag{
+      margin:auto;
+    }
+
+    .theInfo{
+      border:1px solid green;
+      margin:auto;
+    }
+  }
+}
+
+@media(max-width: 760px) and (min-width: 500px){
+  #countryContainer{
+    grid-template-columns: auto auto;
+  }
+
+  #searchContainer{
+    display: block;
+    #search{
+      width: 100%;
+    }
+    #selectContainer{
+      margin-top: 20px;
+      margin-left: 0;
+      width: 50%;
+    }
+
+  }
+
+  //Country Details
+  #theCountry{
+    border: 1px solid yellow;
+    display: block;
+
+    .theFlag{
+      margin:auto;
+      width: 70%;
+    }
+
+    .theInfo{
+      border:1px solid green;
+      margin:auto;
+      width: 70%;
+    }
+    #borderContainer{
+      display:block;
+      p{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 490px) and (min-width: 100px){
+  #countryContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  #searchContainer{
+    display: block;
+    #search{
+      width: 100%;
+    }
+    #selectContainer{
+      margin-top: 20px;
+      margin-left: 0;
+      width: 50%;
+    }
+
+  }
+
+  //countryDetails
+  #theCountry{
+    display: block;
+
+    .theFlag{
+      margin:auto;
+      width: 90%;
+    }
+
+    .theInfo{
+      margin:auto;
+      width: 90%;
+    }
+
+    #demograhpics{
+      display:block;
+      div{
+        width: 100%;
+      }
+      div:not(:last-child){
+        margin-bottom: 15px;
+      }
+    }
+    #borderContainer{
+      display:block;
+      p{
+        margin-bottom: 20px;
+      }
+      .theBorders{
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+

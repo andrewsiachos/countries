@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+$darkBlue : hsl(209, 23%, 22%); //(Dark Mode Elements)
+$veryDarkBlue : hsl(207, 26%, 17%); //(Dark Mode Background)
+$veryDarkBlue : hsl(200, 15%, 8%); //(Light Mode Text)
+$darkGray : hsl(0, 0%, 52%); //(Light Mode Input)
+$veryLightGray : hsl(0, 0%, 98%); //(Light Mode Background)
+$white : hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: $veryLightGray;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+}
